@@ -88,4 +88,39 @@ Timing attacks on loading or processing secrets can be introduced in various way
 [^3]: [demo_delay_by_process_condition_breaking.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_delay_by_process_condition_breaking.py)  
   Delays introduced by different processes or instructions.
 
+<hr>
 
+## Avoid table look-ups indexed by secret data
+
+### Problem
+
+The access time of a table element can vary with its index (depending for example on whether a cache-miss has occured). This has for example been exploited in a series of cache-timing attacks on AES.
+
+### Solution
+
+Replace table look-up with sequences of constant-time logical operations, for example by bitslicing look-ups (as used in [NaCl's](http://nacl.cr.yp.to/) [implementation](http://eprint.iacr.org/2009/129.pdf) of AES-CTR, or in [Serpent](https://www.ii.uib.no/~osvik/serpent/).
+
+For AES, constant-time non-bitsliced implementations are also [possible](http://crypto.stackexchange.com/questions/55/known-methods-for-constant-time-table-free-aes-implementation-using-standard/92#92), but are much slower. 
+
+Where design uses a lookup table (called an S-Box) indexed by secret data, which is inherently vulnerable to [cache-timing attacks](https://cr.yp.to/antiforgery/cachetiming-20050414.pdf).
+
+There are workarounds for this AES vulnerability, but they either require hardware acceleration (AES-NI) or a technique called [bitslicing](https://github.com/jedisct1/libsodium/tree/1.0.14/src/libsodium/crypto_stream/aes128ctr/nacl).
+
+The dilemma is often to choose between performance and security. You cannot get fast, constant-time  unless with hardware support, e.g. hardware acceleration.
+
+<hr>
+
+## Avoid secret-dependent loop bounds
+
+### Problem
+
+Loops with a bound derived from a secret value directly expose a program to timing attacks.
+
+### Solution
+
+Make sure that all loops are bounded by a constant (or at least a non-secret variable).
+
+Ensure, as far as possible, that loop bounds and their potential underflow or overflow are independent of user-controlled input (> Caveat: [Heartbleed bug](http://heartbleed.com/)).
+
+
+<hr>
