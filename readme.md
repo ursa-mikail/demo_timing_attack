@@ -1,6 +1,6 @@
 To demonstrate a malicious app that performs a timing attack to extract encryption keys, such as the one used by applications to encrypt storage, you would need to show how the app can flush the CPU cache and measure the timing of secret-dependent operations with sufficient precision. Below is a conceptual overview of how such an attack might be constructed and demonstrated:
 
-Overview of the Attack
+## Overview of the Attack
 Flush+Reload Timing Attack: This attack leverages the CPU cache to infer information about secret-dependent operations by measuring the time it takes to access data.
 
 Prerequisites:
@@ -13,7 +13,9 @@ Steps to Construct the Attack
 Install Necessary Tools: You'll need tools for monitoring and manipulating the CPU cache and measuring time with high precision.
 
 # Install necessary packages
+<pre>
 apt-get install build-essential perf
+</pre>
 
 2. Flush the CPU Cache
 Use clflush instruction to flush the CPU cache. This instruction is usually available through inline assembly or specific libraries.
@@ -79,11 +81,11 @@ Timing attacks on loading or processing secrets can be introduced in various way
 - [x] :zap: Differences in Processing Under Different Conditions: Different processing paths or states may cause the system to exhibit varying delays depending on the condition being met (e.g., whether the secret is correctly guessed or not)[^3].
 
 
-[^1]: [demo_delay_by_call_function.py](./demo_delay_by_call_function.py)  
+[^1]: [demo_delay_by_call_function.py](demo_delay_by_call_function.py)  
   Delays introduced by calling different functions.
-[^2]: [demo_delay_by_conditional_branching.py](./demo_delay_by_conditional_branching.py)  
+[^2]: [demo_delay_by_conditional_branching.py](demo_delay_by_conditional_branching.py)  
   Delays introduced by conditional branching.
-[^3]: [demo_delay_by_process_condition_breaking.py](./demo_delay_by_process_condition_breaking.py)  
+[^3]: [demo_delay_by_process_condition_breaking.py](demo_delay_by_process_condition_breaking.py)  
   Delays introduced by different processes or instructions.
 
 
