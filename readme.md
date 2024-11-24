@@ -81,11 +81,11 @@ Timing attacks on loading or processing secrets can be introduced in various way
 - [x] :zap: Differences in Processing Under Different Conditions: Different processing paths or states may cause the system to exhibit varying delays depending on the condition being met (e.g., whether the secret is correctly guessed or not)[^3].
 
 
-[^1]: [demo_delay_by_call_function.py](./demo_delay_by_call_function.py)  
+[^1]: [demo_delay_by_call_function.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_delay_by_call_function.py)  
   Delays introduced by calling different functions.
-[^2]: [demo_delay_by_conditional_branching.py](./demo_delay_by_conditional_branching.py)  
+[^2]: [demo_delay_by_conditional_branching.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_delay_by_conditional_branching.py)  
   Delays introduced by conditional branching.
-[^3]: [demo_delay_by_process_condition_breaking.py](./demo_delay_by_process_condition_breaking.py)  
+[^3]: [demo_delay_by_process_condition_breaking.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_delay_by_process_condition_breaking.py)  
   Delays introduced by different processes or instructions.
 
 
