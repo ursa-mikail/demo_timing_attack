@@ -1,18 +1,18 @@
 To demonstrate a malicious app that performs a timing attack to extract encryption keys, such as the one used by applications to encrypt storage, you would need to show how the app can flush the CPU cache and measure the timing of secret-dependent operations with sufficient precision. Below is a conceptual overview of how such an attack might be constructed and demonstrated:
 
-## Overview of the Attack
+# Overview of the Attack
 Flush+Reload Timing Attack: This attack leverages the CPU cache to infer information about secret-dependent operations by measuring the time it takes to access data.
 
-Prerequisites:
-Ability to run unprivileged code on the target device.
-High-precision timers to measure cache access times.
-Knowledge of where in memory the secrets or secret-dependent operations are likely to be.
+### Prerequisites:
+- [x] Ability to run unprivileged code on the target device.
+- [x] High-precision timers to measure cache access times.
+- [x] Knowledge of where in memory the secrets or secret-dependent operations are likely to be.
 
-Steps to Construct the Attack
+## Steps to Construct the Attack
 1. Setting Up the Environment
 Install Necessary Tools: You'll need tools for monitoring and manipulating the CPU cache and measuring time with high precision.
 
-# Install necessary packages
+### Install necessary packages
 <pre>
 apt-get install build-essential perf
 </pre>
