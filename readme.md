@@ -79,6 +79,15 @@ Timing attacks on loading or processing secrets can be introduced in various way
 - [x] :zap: Function Calls: Delays introduced by calling different functions for correct or incorrect characters or operations[^1].
 - [x] :zap: Conditional Branching: Conditional branches may introduce different timing behavior based on the data being processed[^2].
 - [x] :zap: Differences in Processing Under Different Conditions: Different processing paths or states may cause the system to exhibit varying delays depending on the condition being met (e.g., whether the secret is correctly guessed or not)[^3].
+- [x] :zap: Demo on simplified illustration on timing attack on AES[^4].. 
+Consider the variable-index array lookup T0[k[0]⊕n[0]] near the beginning of the AES computation. One might speculate that the time for this array lookup depends on the array index; that the time for the whole AES computation is well correlated with the time for this array lookup; that, consequently, the AES timings leak information about k[0] ⊕ n[0]; and that one can deduce the exact value of k[0] from the distribution of AES timings as a function of n[0]. Similar comments apply to k[1] ⊕ n[1], k[2] ⊕ n[2], etc.
+
+Assume, for example, that the attacker
+- watches the time taken by the victim to handle many n’s,
+- totals the AES times for each possible n[13], and
+- observes that the overall AES time is maximum when n[13] is, say, 147.
+
+Assume that the attacker also observes, by carrying out experiments with known keys k on a computer with the same AES software and the same CPU, that the overall AES time is maximum when k[13]⊕n[13] is, say, 8. The attacker concludes that the victim’s k[13] is 147 ⊕ 8 = 155.
 
 
 [^1]: [demo_delay_by_call_function.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_delay_by_call_function.py)  
@@ -87,6 +96,8 @@ Timing attacks on loading or processing secrets can be introduced in various way
   Delays introduced by conditional branching.
 [^3]: [demo_delay_by_process_condition_breaking.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_delay_by_process_condition_breaking.py)  
   Delays introduced by different processes or instructions.
+[^4]: [demo_simplified_timing_attack_on_key_xor_part.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_simplified_timing_attack_on_key_xor_part.py)  
+  Demo on simplified illustration on timing attack on AES.
 
 <hr>
 
