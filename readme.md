@@ -89,7 +89,7 @@ Assume, for example, that the attacker
 
 Assume that the attacker also observes, by carrying out experiments with known keys k on a computer with the same AES software and the same CPU, that the overall AES time is maximum when k[13]⊕n[13] is, say, 8. The attacker concludes that the victim’s k[13] is 147 ⊕ 8 = 155.
 
-![timing_attack_on_just_key_xor_part](timing_attack_on_just_key_xor_part.png)
+![simplified_timing_attack_on_just_key_xor_part](simplified_timing_attack_on_just_key_xor_part.png)
 
 
 [^1]: [demo_delay_by_call_function.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_delay_by_call_function.py)  
