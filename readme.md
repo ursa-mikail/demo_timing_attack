@@ -98,8 +98,11 @@ Assume that the attacker also observes, by carrying out experiments with known k
   Delays introduced by conditional branching.
 [^3]: [demo_delay_by_process_condition_breaking.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_delay_by_process_condition_breaking.py)  
   Delays introduced by different processes or instructions.
-[^4]: [demo_simplified_timing_attack_on_key_xor_part.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_simplified_timing_attack_on_key_xor_part.py)  
+[^4]: 
+[demo_simplified_timing_attack_on_key_xor_part.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_simplified_timing_attack_on_key_xor_part.py) 
+[https://cr.yp.to/antiforgery/cachetiming-20050414.pdf](https://cr.yp.to/antiforgery/cachetiming-20050414.pdf) 
   Demo on simplified illustration on timing attack on AES.
+
 
 <hr>
 
