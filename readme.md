@@ -79,7 +79,8 @@ Timing attacks on loading or processing secrets can be introduced in various way
 - [x] :zap: Function Calls: Delays introduced by calling different functions for correct or incorrect characters or operations[^1].
 - [x] :zap: Conditional Branching: Conditional branches may introduce different timing behavior based on the data being processed[^2].
 - [x] :zap: Differences in Processing Under Different Conditions: Different processing paths or states may cause the system to exhibit varying delays depending on the condition being met (e.g., whether the secret is correctly guessed or not)[^3].
-- [x] :zap: Demo on simplified illustration on timing attack on AES[^4]. 
+- [x] :zap: Demo on simplified illustration on timing attack on AES[^4][^5]. 
+
 Consider the variable-index array lookup T0[k[0]⊕n[0]] near the beginning of the AES computation. One might speculate that the time for this array lookup depends on the array index; that the time for the whole AES computation is well correlated with the time for this array lookup; that, consequently, the AES timings leak information about k[0] ⊕ n[0]; and that one can deduce the exact value of k[0] from the distribution of AES timings as a function of n[0]. Similar comments apply to k[1] ⊕ n[1], k[2] ⊕ n[2], etc.
 
 Assume, for example, that the attacker
@@ -98,10 +99,10 @@ Assume that the attacker also observes, by carrying out experiments with known k
   Delays introduced by conditional branching.
 [^3]: [demo_delay_by_process_condition_breaking.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_delay_by_process_condition_breaking.py)  
   Delays introduced by different processes or instructions.
-[^4]: 
-[demo_simplified_timing_attack_on_key_xor_part.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_simplified_timing_attack_on_key_xor_part.py) 
-[https://cr.yp.to/antiforgery/cachetiming-20050414.pdf](https://cr.yp.to/antiforgery/cachetiming-20050414.pdf) 
+[^4]: [demo_simplified_timing_attack_on_key_xor_part.py](https://github.com/ursa-mikail/demo_timing_attack/blob/main/demo_simplified_timing_attack_on_key_xor_part.py) 
   Demo on simplified illustration on timing attack on AES.
+[^5]: [Cache-timing attacks on AES](https://cr.yp.to/antiforgery/cachetiming-20050414.pdf) 
+  Cache-timing attacks on AES.
 
 
 <hr>
